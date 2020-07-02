@@ -27,7 +27,8 @@ const isNumber = function (val) {
 // Array used as argument in tests
 let nums = [-3, -1, 0, 1, 2, 30, 45, 678];
 console.log("nums array: ", nums);
-
+let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+console.log("letters array: ", letters);
 // Tests
 console.groupCollapsed("newForEach");
 console.log("Expected output:");
@@ -174,6 +175,73 @@ testOutputs(
   nums.filter(isAbove678),
   "newFilter(nums, isAbove678)"
 );
+console.groupEnd();
+
+console.group("newIncludes");
+testOutputs(
+  newIncludes(nums, 30),
+  nums.includes(30),
+  "newIncludes(nums, 30)"
+);
+testOutputs(
+  newIncludes(nums, 400),
+  nums.includes(400),
+  "newIncludes(nums, 400)"
+);
+console.groupEnd();
+
+console.group("newConcat");
+testOutputs(
+  newConcat(nums, letters),
+  nums.concat(letters),
+  "newConcat(nums, letters)"
+);
+
+console.groupEnd();
+
+console.group("newIndexOf");
+testOutputs(
+  newIndexOf(nums, 30),
+  nums.indexOf(30),
+  "newIndexOf(nums)"
+);
+
+testOutputs(
+  newIndexOf(nums, 400),
+  nums.indexOf(400),
+  "newIndexOf(nums)"
+);
+
+console.groupEnd();
+
+console.group("newJoin");
+testOutputs(
+  newJoin(nums, '-'),
+  nums.join('-'),
+  "newJoin(nums)"
+);
+
+testOutputs(
+  newJoin(nums, ' '),
+  nums.join(' '),
+  "newJoin(nums)"
+);
+
+testOutputs(
+  newJoin(nums, ','),
+  nums.join(','),
+  "newJoin(nums)"
+);
+
+console.groupEnd();
+
+console.group("newSlice");
+testOutputs(
+  newSlice(nums, 0, 1),
+  nums.slice(0, 1),
+  "newslice(nums)"
+);
+
 console.groupEnd();
 
 // Test helper function
